@@ -3,19 +3,6 @@ import os
 
 from flask import Flask, jsonify
 from flask_cors import CORS
-
-CORS(
-    app,
-    resources={
-        r"/api/*": {
-            "origins": [
-                "https://intelligent-apartment-management-d6gp0zymw-sreejakola013.vercel.app"
-            ]
-        }
-    },
-    allow_headers=["Content-Type", "Authorization"],
-    methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
-)
 from dotenv import load_dotenv
 
 from database import check_database
@@ -41,7 +28,7 @@ app.config["SECRET_KEY"] = os.getenv(
     "dev-only-change-this-secret"
 )
 
-# Configure CORS for the Vite frontend
+# Configure CORS for local development and deployed Vercel frontend
 CORS(
     app,
     resources={
@@ -55,12 +42,13 @@ CORS(
                 "http://127.0.0.1:5174",
                 "http://127.0.0.1:5175",
                 "http://127.0.0.1:5176",
+                "https://intelligent-apartment-management-d6gp0zymw-sreejakola013.vercel.app",
             ]
         }
     },
     allow_headers=[
         "Content-Type",
-        "Authorization"
+        "Authorization",
     ],
     methods=[
         "GET",
@@ -68,9 +56,9 @@ CORS(
         "PUT",
         "PATCH",
         "DELETE",
-        "OPTIONS"
+        "OPTIONS",
     ],
-    supports_credentials=False
+    supports_credentials=False,
 )
 
 # Register all application blueprints
@@ -89,7 +77,7 @@ app.register_blueprint(animal_bp)
 def home():
     return jsonify({
         "message": "Intelligent Apartment Management System API",
-        "status": "running"
+        "status": "running",
     })
 
 
@@ -98,7 +86,7 @@ def home():
 def health():
     return jsonify({
         "success": True,
-        "message": "Backend is running"
+        "message": "Backend is running",
     })
 
 
@@ -110,7 +98,7 @@ def database_health():
 
         return jsonify({
             "success": True,
-            "message": "MongoDB connection successful"
+            "message": "MongoDB connection successful",
         })
 
     except Exception:
@@ -118,14 +106,14 @@ def database_health():
 
         return jsonify({
             "success": False,
-            "message": "Database connection failed"
+            "message": "Database connection failed",
         }), 503
 
 
-# Start the Flask development server
+# Start the Flask development server locally
 if __name__ == "__main__":
     app.run(
         host="127.0.0.1",
         port=5000,
-        debug=True
+        debug=True,
     )
