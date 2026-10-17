@@ -1,0 +1,136 @@
+
+.dashboard-page {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 32px;
+  color: #17243b;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.dashboard-header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 750;
+}
+
+.dashboard-header p {
+  margin: 0;
+  color: #64748b;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.dashboard-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 185px;
+  width: 100%;
+  padding: 26px;
+  text-align: left;
+  background: #fff;
+  color: #17243b;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(30, 50, 80, 0.05);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  border-color: #8aa9f8;
+  box-shadow: 0 12px 28px rgba(30, 50, 80, 0.12);
+}
+
+.dashboard-card:focus-visible {
+  outline: 3px solid #6489f5;
+  outline-offset: 3px;
+}
+
+.dashboard-card-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 18px;
+  border-radius: 15px;
+  background: #eef2ff;
+  font-size: 28px;
+}
+
+.dashboard-card h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.dashboard-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.dashboard-card-action {
+  margin-top: 18px;
+  color: #4169e1;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.dashboard-logout {
+  padding: 11px 20px;
+  color: #fff;
+  background: #dc3545;
+  border: none;
+  border-radius: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dashboard-logout:hover {
+  background: #bb2d3b;
+}
+
+@media (max-width: 1000px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .dashboard-page {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-page {
+    padding: 16px;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+  }
+
+  .dashboard-card {
+    min-height: 150px;
+  }
+}

@@ -1,0 +1,530 @@
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #1f2937;
+  background: #f3f6fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 28px 16px;
+  background: linear-gradient(135deg, #eaf2ff, #f5f7fb);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 34px;
+  background: white;
+  border: 1px solid #e4e9f2;
+  border-radius: 18px;
+  box-shadow: 0 15px 45px rgba(31, 55, 90, 0.09);
+}
+
+.brand-icon {
+  font-size: 36px;
+  margin-bottom: 14px;
+}
+
+.auth-card h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  color: #152b4d;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin: 0 0 25px;
+  line-height: 1.5;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-card label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 7px;
+}
+
+.auth-card input,
+.auth-card select {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid #d6deea;
+  border-radius: 8px;
+  background: #fff;
+  outline: none;
+}
+
+.auth-card input:focus,
+.auth-card select:focus {
+  border-color: #3568d4;
+  box-shadow: 0 0 0 3px rgba(53, 104, 212, 0.12);
+}
+
+.auth-card form button {
+  margin-top: 14px;
+  padding: 13px;
+  color: white;
+  background: #2458c6;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.auth-card form button:hover {
+  background: #1948a8;
+}
+
+.switch-link {
+  margin: 22px 0 0;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.switch-link a {
+  color: #2458c6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.error-message {
+  margin: 0 0 16px;
+  padding: 11px 12px;
+  border-radius: 8px;
+  color: #a52828;
+  background: #fff0f0;
+  border: 1px solid #f5cccc;
+  font-size: 14px;
+}
+
+.dashboard-page {
+  min-height: 100vh;
+}
+
+.topbar {
+  height: 72px;
+  padding: 0 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #e5eaf2;
+}
+
+.topbar-brand {
+  font-size: 21px;
+  font-weight: 750;
+  color: #193963;
+}
+
+.logout-button {
+  padding: 9px 16px;
+  border: 1px solid #d7deea;
+  border-radius: 8px;
+  color: #263b59;
+  background: white;
+}
+
+.dashboard-content {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 42px 24px;
+}
+
+.welcome-panel {
+  padding: 32px;
+  margin-bottom: 34px;
+  color: white;
+  background: linear-gradient(120deg, #1d4382, #3275c9);
+  border-radius: 16px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  opacity: 0.8;
+}
+
+.welcome-panel h1 {
+  margin: 14px 0 10px;
+  font-size: clamp(27px, 4vw, 36px);
+}
+
+.welcome-panel p {
+  line-height: 1.6;
+}
+
+.role-pill {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.17);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dashboard-content > h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.module-card {
+  padding: 25px;
+  background: white;
+  border: 1px solid #e4e9f2;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(31, 55, 90, 0.035);
+}
+
+.module-icon {
+  font-size: 30px;
+}
+
+.module-card h3 {
+  margin: 16px 0 8px;
+  color: #213b60;
+}
+
+.module-card p {
+  min-height: 42px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.coming-soon {
+  display: inline-block;
+  margin-top: 8px;
+  color: #2458c6;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .auth-card {
+    padding: 25px 20px;
+  }
+
+  .module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-content {
+    padding: 25px 16px;
+  }
+
+  .welcome-panel {
+    padding: 24px;
+  }
+
+  .topbar {
+    padding: 0 18px;
+  }
+}
+
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #2458c6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.page-heading {
+  color: #193963;
+  margin-bottom: 8px;
+}
+
+.page-description {
+  color: #6b7280;
+  margin-bottom: 28px;
+}
+
+.complaint-form-card {
+  background: white;
+  border: 1px solid #e4e9f2;
+  border-radius: 14px;
+  padding: 26px;
+  margin-bottom: 32px;
+}
+
+.complaint-form-card h2,
+.complaints-list h2 {
+  color: #213b60;
+  margin-top: 0;
+}
+
+.complaint-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.complaint-form label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.complaint-form input,
+.complaint-form select,
+.complaint-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d6deea;
+  border-radius: 8px;
+  font: inherit;
+  background: white;
+}
+
+.complaint-form textarea {
+  resize: vertical;
+}
+
+.complaint-form button,
+.primary-link {
+  display: inline-block;
+  width: fit-content;
+  margin-top: 12px;
+  padding: 12px 18px;
+  color: white;
+  background: #2458c6;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.complaint-form button:disabled {
+  opacity: 0.6;
+}
+
+.success-message {
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  color: #166534;
+  background: #ecfdf3;
+}
+
+.complaints-list {
+  margin-top: 28px;
+}
+
+.complaint-item {
+  background: white;
+  padding: 22px;
+  margin-bottom: 14px;
+  border: 1px solid #e4e9f2;
+  border-radius: 12px;
+}
+
+.complaint-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.complaint-item h3 {
+  margin: 0 0 12px;
+  color: #213b60;
+}
+
+.complaint-item p {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.complaint-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.status-pill {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #fff7ed;
+  color: #9a3412;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-pill.in-progress {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.status-pill.resolved {
+  background: #ecfdf3;
+  color: #166534;
+}
+
+.empty-state {
+  color: #6b7280;
+  padding: 18px 0;
+}
+
+.dashboard-actions {
+  margin-top: 24px;
+}
+
+@media (max-width: 600px) {
+  .complaint-form-card {
+    padding: 18px;
+  }
+
+  .complaint-item-header {
+    flex-direction: column;
+  }
+}
+
+
+.admin-complaints-content {
+  width: min(1100px, 92%);
+  margin: 32px auto;
+}
+
+.admin-complaints-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 26px 0;
+}
+
+.admin-summary-card {
+  background: white;
+  border: 1px solid #e4e9f2;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.admin-summary-card span {
+  display: block;
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.admin-summary-card strong {
+  display: block;
+  color: #213b60;
+  font-size: 28px;
+}
+
+.admin-complaints-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 30px 0 18px;
+}
+
+.admin-complaints-heading h2 {
+  color: #213b60;
+  margin: 0;
+}
+
+.refresh-button {
+  padding: 10px 14px;
+  background: white;
+  color: #2458c6;
+  border: 1px solid #2458c6;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.admin-resident-name {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.admin-status-control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #e4e9f2;
+}
+
+.admin-status-control label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #213b60;
+}
+
+.admin-status-control select {
+  padding: 9px 12px;
+  border: 1px solid #d6deea;
+  border-radius: 8px;
+  background: white;
+  font: inherit;
+}
+
+.updating-text {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+@media (max-width: 700px) {
+  .admin-complaints-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-complaints-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
