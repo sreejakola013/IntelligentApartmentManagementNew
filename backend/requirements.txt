@@ -4,3 +4,4 @@ python-dotenv
 pymongo
 PyJWT
 gunicorn
+opencv-python-headless
