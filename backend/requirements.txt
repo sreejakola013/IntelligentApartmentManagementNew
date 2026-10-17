@@ -5,3 +5,4 @@ pymongo
 PyJWT
 gunicorn
 opencv-python-headless
+ultralytics
