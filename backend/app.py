@@ -3,6 +3,19 @@ import os
 
 from flask import Flask, jsonify
 from flask_cors import CORS
+
+CORS(
+    app,
+    resources={
+        r"/api/*": {
+            "origins": [
+                "https://intelligent-apartment-management-d6gp0zymw-sreejakola013.vercel.app"
+            ]
+        }
+    },
+    allow_headers=["Content-Type", "Authorization"],
+    methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+)
 from dotenv import load_dotenv
 
 from database import check_database
